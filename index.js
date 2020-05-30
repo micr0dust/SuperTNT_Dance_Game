@@ -134,7 +134,7 @@ function handleComplete(evt, comp) {
 			if (blocks[(player1_x) * 100 + (player1_y)] != aim) p1die++;
 			if (blocks[(player2_x) * 100 + (player2_y)] != aim) p2die++;
 			die_detect();
-			if (time > 3) inittime -= 1;
+			if (inittime > 3) inittime -= 1;
 			time = inittime;
 			mapChange();
 		}
@@ -171,7 +171,6 @@ function handleComplete(evt, comp) {
 		inittime = 15;
 		time = inittime;
 		document.querySelector(".time").innerHTML = time;
-
 		//Player1
 		p1die = false;
 		udlr = true;
