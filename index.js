@@ -167,6 +167,11 @@ function handleComplete(evt, comp) {
 		document.querySelector(".gamePlayBtn").style.display = 'block';
 		document.getElementById("win").className = "win";
 		document.getElementById("win").innerHTML = "winner";
+
+		inittime = 15;
+		time = inittime;
+		document.querySelector(".time").innerHTML = time;
+
 		//Player1
 		p1die = false;
 		udlr = true;
