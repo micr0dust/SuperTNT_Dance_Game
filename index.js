@@ -286,6 +286,9 @@ function handleComplete(evt, comp) {
 
 	//手機板
 	function touchdownMove(e) {
+		//console.log(e.keyCode);
+
+		if (end) return reset();
 
 		//Player1
 
@@ -327,7 +330,7 @@ function handleComplete(evt, comp) {
 			data.push((player1_x) * 100 + (player1_y));
 			blocks[(player1_x) * 100 + (player1_y)] = 100;
 			tnt.gotoAndPlay("shing");
-			exportRoot.addChildAt(tnt, 1);
+			exportRoot.addChild(tnt);
 			createjs.Sound.play("fuse");
 			setTimeout(function () {
 				let location = data.shift();
@@ -392,7 +395,7 @@ function handleComplete(evt, comp) {
 			data2.push((player2_x) * 100 + (player2_y));
 			blocks[(player2_x) * 100 + (player2_y)] = 100;
 			tnt2.gotoAndPlay("shing");
-			exportRoot.addChildAt(tnt2, 1);
+			exportRoot.addChild(tnt2);
 			createjs.Sound.play("fuse");
 			setTimeout(function () {
 				let location2 = data2.shift();
@@ -444,6 +447,8 @@ function handleComplete(evt, comp) {
 
 	//左上右下37~40
 	function keydownMoveFn(e) {
+		//console.log(e.keyCode);
+		if (end) return reset();
 		//Player1
 
 		if (!canplay) return;
