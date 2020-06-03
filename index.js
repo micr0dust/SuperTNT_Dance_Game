@@ -71,10 +71,22 @@ function handleComplete(evt, comp) {
 
 	//point block
 	pointblock = new lib.blocks();
-	pointblock.x = 15 * 50 - 25;
-	pointblock.y = 7 * 50 - 25;
+	pointblock.x = 765;
+	pointblock.y = 320;
 	pointblock.gotoAndPlay("gray");
 	exportRoot.addChild(pointblock);
+
+	//time
+	time_display = new lib.number();
+	time_display.x = 605;
+	time_display.y = 255;
+	time_display.gotoAndPlay(15);
+	exportRoot.addChild(time_display);
+
+	var end_title = new lib.text();
+	exportRoot.addChild(end_title);
+	end_title.gotoAndPlay("none");
+	let endtitle = false;
 
 	var loadpoint = 0;
 	var sounds = [
@@ -139,7 +151,7 @@ function handleComplete(evt, comp) {
 			mapChange();
 		}
 		time -= 1;
-		document.querySelector(".time").innerHTML = time;
+		time_display.gotoAndPlay(time);
 		if (canplay) setTimeout(function () { countDown(); }, 1000);
 	}
 
@@ -165,12 +177,13 @@ function handleComplete(evt, comp) {
 		document.getElementById("reload_back").style.display = "none";
 		document.getElementById("reload").style.display = "none";
 		document.querySelector(".gamePlayBtn").style.display = 'block';
-		document.getElementById("win").className = "win";
-		document.getElementById("win").innerHTML = "winner";
 
+		if(endtitle) end_title.gotoAndPlay("none");
+		endtitle=false;
 		inittime = 15;
 		time = inittime;
-		document.querySelector(".time").innerHTML = time;
+		time_display.gotoAndPlay(time);
+
 		//Player1
 		p1die = false;
 		udlr = true;
@@ -627,17 +640,19 @@ function handleComplete(evt, comp) {
 			if (gold_count === score1 + score2) {
 				if (score1 - score2 === 0) {
 					canplay = false;
-					document.getElementById("win").classList.remove("win");
-					document.getElementById("win").innerHTML = "WTF?"
-					document.getElementById("win").classList.add("drew");
+					end_title.gotoAndPlay("wtf");
+					end_title.x = 720;
+					end_title.y = 380;
 				} else if (score1 - score2 > 0) {
 					canplay = false;
-					document.getElementById("win").classList.remove("win");
-					document.getElementById("win").classList.add("p1win");
+					end_title.gotoAndPlay("winner");
+					end_title.x = 720;
+					end_title.y = 120;
 				} else {
 					canplay = false;
-					document.getElementById("win").classList.remove("win");
-					document.getElementById("win").classList.add("p2win");
+					end_title.gotoAndPlay("winner");
+					end_title.x = 720;
+					end_title.y = 500;
 				}
 				end_detect();
 				return;
@@ -645,40 +660,44 @@ function handleComplete(evt, comp) {
 			canplay = false;
 			robot.gotoAndPlay("explore");
 			robot2.gotoAndPlay("explore");
-			document.getElementById("win").classList.remove("win");
-			document.getElementById("win").innerHTML = "drew"
-			document.getElementById("win").classList.add("drew");
+			end_title.gotoAndPlay("drew");
+			end_title.x = 720;
+			end_title.y = 380;
 			end_detect();
 			return;
 		} else if (p1die) {
 			canplay = false;
 			robot.gotoAndPlay("explore");
-			document.getElementById("win").classList.remove("win");
-			document.getElementById("win").classList.add("p2win");
+			end_title.gotoAndPlay("winner");
+			end_title.x = 720;
+			end_title.y = 500;
 			end_detect();
 			return;
 		} else if (p2die) {
 			canplay = false;
 			robot2.gotoAndPlay("explore");
-			document.getElementById("win").classList.remove("win");
-			document.getElementById("win").classList.add("p1win");
+			end_title.gotoAndPlay("winner");
+			end_title.x = 720;
+			end_title.y = 120;
 			end_detect();
 			return;
 		}
 		if (gold_count === score1 + score2) {
 			if (score1 - score2 === 0) {
 				canplay = false;
-				document.getElementById("win").classList.remove("win");
-				document.getElementById("win").innerHTML = "drew"
-				document.getElementById("win").classList.add("drew");
+				end_title.gotoAndPlay("drew");
+				end_title.x = 720;
+				end_title.y = 380;
 			} else if (score1 - score2 > 0) {
 				canplay = false;
-				document.getElementById("win").classList.remove("win");
-				document.getElementById("win").classList.add("p1win");
+				end_title.gotoAndPlay("winner");
+					end_title.x = 720;
+					end_title.y = 120;
 			} else {
 				canplay = false;
-				document.getElementById("win").classList.remove("win");
-				document.getElementById("win").classList.add("p2win");
+				end_title.gotoAndPlay("winner");
+					end_title.x = 720;
+					end_title.y = 500;
 			}
 			end_detect();
 		}
@@ -692,6 +711,7 @@ function handleComplete(evt, comp) {
 			document.getElementById("reload_back").style.display = "block";
 			document.getElementById("reload").style.display = "block";
 			end = true;
+			endtitle=true;
 			bgAudio.stop();
 		}
 	}
