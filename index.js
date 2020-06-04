@@ -35,7 +35,6 @@ function handleComplete(evt, comp) {
 	let canplay = false;
 	let step = 1;
 	let isKeyDown = false;
-	let gold_count = 1;
 	var blocks = [1213];
 	var block = [];
 	let end = false;
@@ -50,7 +49,6 @@ function handleComplete(evt, comp) {
 	var robot = new lib.roboter();
 	var player1_x = 12;
 	var player1_y = 1;
-	var score1 = 0;
 	robot.x = 575;
 	robot.y = 25;
 	exportRoot.addChild(robot);
@@ -63,7 +61,6 @@ function handleComplete(evt, comp) {
 	var robot2 = new lib.roboter2();
 	var player2_x = 1;
 	var player2_y = 12;
-	var score2 = 0;
 	robot2.x = 25;
 	robot2.y = 575;
 	exportRoot.addChild(robot2);
@@ -179,10 +176,11 @@ function handleComplete(evt, comp) {
 		document.querySelector(".gamePlayBtn").style.display = 'block';
 
 		if(endtitle) end_title.gotoAndPlay("none");
+		if(endtitle) time_display.gotoAndPlay(time);
+		console.log(endtitle)
 		endtitle=false;
 		inittime = 15;
 		time = inittime;
-		time_display.gotoAndPlay(time);
 
 		//Player1
 		p1die = false;
@@ -637,26 +635,6 @@ function handleComplete(evt, comp) {
 	function die_detect() {
 		if (!canplay) return;
 		if (p1die && p2die) {
-			if (gold_count === score1 + score2) {
-				if (score1 - score2 === 0) {
-					canplay = false;
-					end_title.gotoAndPlay("wtf");
-					end_title.x = 720;
-					end_title.y = 380;
-				} else if (score1 - score2 > 0) {
-					canplay = false;
-					end_title.gotoAndPlay("winner");
-					end_title.x = 720;
-					end_title.y = 120;
-				} else {
-					canplay = false;
-					end_title.gotoAndPlay("winner");
-					end_title.x = 720;
-					end_title.y = 500;
-				}
-				end_detect();
-				return;
-			}
 			canplay = false;
 			robot.gotoAndPlay("explore");
 			robot2.gotoAndPlay("explore");
@@ -681,25 +659,6 @@ function handleComplete(evt, comp) {
 			end_title.y = 120;
 			end_detect();
 			return;
-		}
-		if (gold_count === score1 + score2) {
-			if (score1 - score2 === 0) {
-				canplay = false;
-				end_title.gotoAndPlay("drew");
-				end_title.x = 720;
-				end_title.y = 380;
-			} else if (score1 - score2 > 0) {
-				canplay = false;
-				end_title.gotoAndPlay("winner");
-					end_title.x = 720;
-					end_title.y = 120;
-			} else {
-				canplay = false;
-				end_title.gotoAndPlay("winner");
-					end_title.x = 720;
-					end_title.y = 500;
-			}
-			end_detect();
 		}
 
 
