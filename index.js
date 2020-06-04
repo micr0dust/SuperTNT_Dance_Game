@@ -41,7 +41,6 @@ function handleComplete(evt, comp) {
 	let inittime = 15;
 	let time = inittime;
 	let type;
-	let aim;
 
 	//Player1
 	let p1die = false;
@@ -70,8 +69,9 @@ function handleComplete(evt, comp) {
 	pointblock = new lib.blocks();
 	pointblock.x = 765;
 	pointblock.y = 320;
-	pointblock.gotoAndPlay("gray");
 	exportRoot.addChild(pointblock);
+	let aim = Math.floor(Math.random() * (10 - 1 + 1) + 1);
+	colorChange();
 
 	//time
 	time_display = new lib.number();
@@ -143,7 +143,7 @@ function handleComplete(evt, comp) {
 			if (blocks[(player1_x) * 100 + (player1_y)] != aim) p1die++;
 			if (blocks[(player2_x) * 100 + (player2_y)] != aim) p2die++;
 			die_detect();
-			if (inittime > 3) inittime -= 1;
+			if (inittime > 5) inittime -= 1;
 			time = inittime;
 			mapChange();
 		}
