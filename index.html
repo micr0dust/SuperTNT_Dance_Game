@@ -1,183 +1,179 @@
 <!DOCTYPE html>
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>SuperTNT Dance Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google-site-verification" content="GXeTj8Y0KWTBlAZHADYsQ_cg6vMing5SV8AkWbjQB44" />
+    <title>SuperTNT Dance Game</title>
 </head>
 
 <body>
-	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-	<script src="./dance.js"></script>
-	<script src="./index.js"></script>
-	<style>
-		* {
-			padding: 0;
-			margin: 0;
-		}
-
-		html,
-		body {
-			width: 100%;
-			height: 100%;
-			display: -webkit-box;
-			display: -webkit-flex;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-pack: center;
-			-webkit-justify-content: center;
-			-ms-flex-pack: center;
-			justify-content: center;
-			-webkit-box-align: center;
-			-webkit-align-items: center;
-			-ms-flex-align: center;
-			align-items: flex-start;
-			background-color: #70c4ce;
-		}
-
-		canvas {
-			border: 7px solid #fff;
-		}
-
-		#content {
-			width: 700px;
-			height: 400px;
-			position: relative;
-		}
-
-		.reload {
-			top: 35%;
-			left: 27%;
-			position: absolute;
-			font-size: 50px;
-			z-index: 10;
-			color: aliceblue;
-			visibility: visible;
-
-		}
-
-		.reload_back {
-			top: 35%;
-			left: 26.8%;
-			position: absolute;
-			font-size: 50px;
-			z-index: 10;
-			color: black;
-			visibility: visible;
-
-		}
-
-		.gamePlayBtn {
-			top: 44%;
-			left: 32%;
-			position: absolute;
-			z-index: 10;
-		}
-
-		#main {
-			display: inline;
-		}
-
-		#p1ctr2 {
-			position: absolute;
-			left: 1.4%;
-			top: 10%;
-		}
-
-		#p1ctrl {
-			position: absolute;
-			left: 84%;
-			top: 10%;
-		}
-
-		.x-way input {
-			width: 98px;
-			height: 100px;
-			font-size: 50px;
-		}
-
-		.y-way input {
-			width: 200px;
-			height: 100px;
-			font-size: 50px;
-		}
-	</style>
-	<div class="content">
-		<div class="ctrl">
-			<div id="p1ctr2" class="btn">
-				<div class="x-way">
-					<input class="left2" type="button" value="⇦">
-					<input class="right2" type="button" value="⇨">
-					<br>
-					<br>
-					<br>
-					<br>
-				</div>
-				<div class="y-way">
-					<input class="tnt2" type="button" value="⊠">
-					<br>
-					<br>
-					<input class="up2" type="button" value="⇧">
-					<br>
-					<br>
-					<input class="down2" type="button" value="⇩">
-				</div>
-			</div>
-			<div id="p1ctrl" class="btn">
-				<div class="y-way">
-					<input class="up1" type="button" value="⇧">
-					<br>
-					<br>
-					<input class="down1" type="button" value="⇩">
-					<br>
-					<br>
-					<input class="tnt1" type="button" value="⊠">
-				</div>
-				<div class="x-way">
-					<br>
-					<br>
-					<br>
-					<br>
-					<input class="left1" type="button" value="⇦">
-					<input class="right1" type="button" value="⇨">
-				</div>
-			</div>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="./dance.js"></script>
+    <script src="./index.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: flex-start;
+            background-color: #70c4ce;
+        }
+        
+        canvas {
+            border: 7px solid #fff;
+        }
+        
+        #content {
+            width: 700px;
+            height: 400px;
+            position: relative;
+        }
+        
+        .reload {
+            top: 35%;
+            left: 27%;
+            position: absolute;
+            font-size: 50px;
+            z-index: 10;
+            color: aliceblue;
+            visibility: visible;
+        }
+        
+        .reload_back {
+            top: 35%;
+            left: 26.8%;
+            position: absolute;
+            font-size: 50px;
+            z-index: 10;
+            color: black;
+            visibility: visible;
+        }
+        
+        .gamePlayBtn {
+            top: 44%;
+            left: 32%;
+            position: absolute;
+            z-index: 10;
+        }
+        
+        #main {
+            display: inline;
+        }
+        
+        #p1ctr2 {
+            position: absolute;
+            left: 1.4%;
+            top: 10%;
+        }
+        
+        #p1ctrl {
+            position: absolute;
+            left: 84%;
+            top: 10%;
+        }
+        
+        .x-way input {
+            width: 98px;
+            height: 100px;
+            font-size: 50px;
+        }
+        
+        .y-way input {
+            width: 200px;
+            height: 100px;
+            font-size: 50px;
+        }
+    </style>
+    <div class="content">
+        <div class="ctrl">
+            <div id="p1ctr2" class="btn">
+                <div class="x-way">
+                    <input class="left2" type="button" value="⇦">
+                    <input class="right2" type="button" value="⇨">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="y-way">
+                    <input class="tnt2" type="button" value="⊠">
+                    <br>
+                    <br>
+                    <input class="up2" type="button" value="⇧">
+                    <br>
+                    <br>
+                    <input class="down2" type="button" value="⇩">
+                </div>
+            </div>
+            <div id="p1ctrl" class="btn">
+                <div class="y-way">
+                    <input class="up1" type="button" value="⇧">
+                    <br>
+                    <br>
+                    <input class="down1" type="button" value="⇩">
+                    <br>
+                    <br>
+                    <input class="tnt1" type="button" value="⊠">
+                </div>
+                <div class="x-way">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <input class="left1" type="button" value="⇦">
+                    <input class="right1" type="button" value="⇨">
+                </div>
+            </div>
 
 
-		</div>
-		<a id="gamePlayBtn" class="gamePlayBtn" style="display: none;"><img src="./images/4YtokZ.png" alt=""></a>
-		<h1 id="reload_back" class="reload_back">資源載入中...</h1>
-		<h1 id="reload" class="reload">資源載入中...</h1>
-		<div id="animation_container" style="background-color:rgba(255, 204, 153, 1.00); width:640px; height:480px">
-			<canvas id="canvas" width="640" height="480"
-				style="position: absolute; display: block; background-color:rgba(255, 204, 153, 1.00);"></canvas>
-			<div id="dom_overlay_container"
-				style="pointer-events:none; overflow:hidden; width:640px; height:480px; position: absolute; left: 0px; top: 0px; display: block;">
-			</div>
-		</div>
-		<script>
-			//check mobile device
-			function detectmob() {
-				if (navigator.userAgent.match(/Android/i)
-					|| navigator.userAgent.match(/webOS/i)
-					|| navigator.userAgent.match(/iPhone/i)
-					|| navigator.userAgent.match(/iPad/i)
-					|| navigator.userAgent.match(/iPod/i)
-					|| navigator.userAgent.match(/BlackBerry/i)
-					|| navigator.userAgent.match(/Windows Phone/i)
-				) {
-					if (window.DeviceOrientationEvent) {
-						alert("請轉為橫屏!");
-					}
-					return true;
-				}
-				else {
-					return false;
-				}
-			}
-			if (!detectmob()) {
-				document.querySelector(".ctrl").style.display = 'none';
-			}
-		</script>
+        </div>
+        <a id="gamePlayBtn" class="gamePlayBtn" style="display: none;"><img src="./images/4YtokZ.png" alt=""></a>
+        <h1 id="reload_back" class="reload_back">資源載入中...</h1>
+        <h1 id="reload" class="reload">資源載入中...</h1>
+        <div id="animation_container" style="background-color:rgba(255, 204, 153, 1.00); width:640px; height:480px">
+            <canvas id="canvas" width="640" height="480" style="position: absolute; display: block; background-color:rgba(255, 204, 153, 1.00);"></canvas>
+            <div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:640px; height:480px; position: absolute; left: 0px; top: 0px; display: block;">
+            </div>
+        </div>
+        <script>
+            //check mobile device
+            function detectmob() {
+                if (navigator.userAgent.match(/Android/i) ||
+                    navigator.userAgent.match(/webOS/i) ||
+                    navigator.userAgent.match(/iPhone/i) ||
+                    navigator.userAgent.match(/iPad/i) ||
+                    navigator.userAgent.match(/iPod/i) ||
+                    navigator.userAgent.match(/BlackBerry/i) ||
+                    navigator.userAgent.match(/Windows Phone/i)
+                ) {
+                    if (window.DeviceOrientationEvent) {
+                        alert("請轉為橫屏!");
+                    }
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            if (!detectmob()) {
+                document.querySelector(".ctrl").style.display = 'none';
+            }
+        </script>
 </body>
