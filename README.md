@@ -6,6 +6,7 @@
 
 ### 電腦版控制:
 1P:WASD+G
+
 2P:上下左右+[/]
 demo: https://wuilliam104286.github.io/SuperTNT_Dance_Game/
 
