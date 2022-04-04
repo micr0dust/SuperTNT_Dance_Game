@@ -9,6 +9,6 @@
 
 2P:上下左右+[/]
 
-demo: https://wuilliam104286.github.io/SuperTNT_Dance_Game/
+demo: https://micr0dust.github.io/SuperTNT_Dance_Game/
 
 ![](https://truth.bahamut.com.tw/s01/202006/b9fef839bef01eefc76d97e539dec23c.JPG?w=1000)
